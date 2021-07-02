@@ -6,14 +6,17 @@ const App = () => {
   const [ userList, setUserList ] = useState([]);
 
   const handleAddUser = newUser => {
-    console.log("App.js: ", newUser);
-
     setUserList(prevState => {
       return [...prevState, newUser]
     })
   }
-  
+
   return (
+    <>
+    <div className="main-banner">
+      <h1>User List Application</h1>
+    </div>
+
     <div className="main-container">
       <AddUserForm 
         addUser={handleAddUser}
@@ -22,6 +25,7 @@ const App = () => {
         userList={userList}
       />
     </div>
+    </>
   );
 }
 

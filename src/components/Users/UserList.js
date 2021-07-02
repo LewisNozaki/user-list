@@ -3,7 +3,7 @@ import User from "./User"
 
 const UserList = ({ userList }) => {
   return (
-    <div>
+    <ul>
       {userList.map(user => {
         return (
           <User 
@@ -13,7 +13,7 @@ const UserList = ({ userList }) => {
           />
         )
       })}
-    </div>
+    </ul>
   )
 }
 

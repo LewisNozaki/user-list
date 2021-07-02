@@ -15,10 +15,19 @@ body {
 }
 
 .main-container {
-  border: 1px solid black;
+  border: 1px solid #999;
+  border-radius: 10px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
   padding: 2em;
-  width: 50%;
+  width: 30%;
   margin: 2em auto;
+}
+
+.main-banner {
+  padding: 5em;
+  text-align: center;
+  background: linear-gradient(to bottom right, aquamarine, cornflowerblue);
+  color: white;
 }
 
 input {
@@ -28,4 +37,14 @@ input {
 button {
   width: 100%;
   margin-top: 2em;
+}
+
+ul {
+  list-style: none;
+}
+
+@media (max-width: 800px) {
+  .main-container {
+    width: 90%;
+  }
 }

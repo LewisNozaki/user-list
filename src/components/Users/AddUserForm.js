@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const AddUserForm = ({ addUser }) => {
   const [ username, setUsername ] = useState("");
   const [ age, setAge ] = useState("");
-  
+
   const handleUsernameInputChange = e => setUsername(e.target.value);
   const handleAgeInputChange = e => setAge(e.target.value);
   
@@ -15,9 +15,7 @@ const AddUserForm = ({ addUser }) => {
       username: username,
       age: age,
     }
-
-    console.log("AddUserForm: ", newUser);
-
+    
     addUser(newUser);
 
     setUsername("");
@@ -47,7 +45,11 @@ const AddUserForm = ({ addUser }) => {
         />
       </div>
 
-      <button type="submit">Add</button>
+      <button 
+        type="submit"
+        className="button-primary"
+        >Add
+      </button>
     </form>
   )
 };

@@ -1,10 +1,12 @@
 import React from "react";
+import styles from "./User.module.css";
 
 const User = ({ username, age }) => {
   return (
-    <div>
+    <li
+      className={styles["user-list-item"]}>
       {`${username} (${age})`}
-    </div>
+    </li>
   )
 }
 
