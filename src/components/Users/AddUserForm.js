@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddUserForm = ({ addUser, showModal }) => {
+const AddUserForm = ({ addUser, showModal, isDisabled }) => {
   const [ username, setUsername ] = useState("");
   const [ age, setAge ] = useState("");
 
@@ -31,7 +31,7 @@ const AddUserForm = ({ addUser, showModal }) => {
       username: username,
       age: age,
     }
-    
+
     addUser(newUser);
 
     setUsername("");
@@ -64,6 +64,7 @@ const AddUserForm = ({ addUser, showModal }) => {
       <button 
         type="submit"
         className="button-primary"
+        disabled={isDisabled}
         >Add
       </button>
     </form>

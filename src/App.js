@@ -7,6 +7,7 @@ const App = () => {
   const [ userList, setUserList ] = useState([]);
   const [ isValid, setIsValid ] = useState(true);
   const [ modalMessage, setModalMessage ] = useState("");
+  const [ disableButton, setDisableButton ] = useState(false);
 
   const handleAddUser = newUser => {
     setUserList(prevState => {
@@ -15,13 +16,17 @@ const App = () => {
 
     setIsValid(true);
   }
-
+  
   const handleValidation = message => {
     setIsValid(false);
     setModalMessage(message);
+    setDisableButton(true);
   }
 
-  const closeModal = () => setIsValid(true);
+  const closeModal = () => {
+    setIsValid(true);
+    setDisableButton(false);
+  }
 
   return (
     <div className="main-container">
@@ -33,6 +38,7 @@ const App = () => {
         <AddUserForm 
           addUser={handleAddUser}
           showModal={handleValidation}
+          isDisabled={disableButton}
         />
         <UserList 
           userList={userList}
