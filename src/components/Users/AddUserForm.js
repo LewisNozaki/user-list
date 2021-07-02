@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddUserForm = ({ addUser }) => {
+const AddUserForm = ({ addUser, showModal }) => {
   const [ username, setUsername ] = useState("");
   const [ age, setAge ] = useState("");
 
@@ -9,13 +9,21 @@ const AddUserForm = ({ addUser }) => {
   
   const handleSubmit = e => {
     e.preventDefault();
-
+    
+    if (username === "" || age === "") {
+      let message = "Please enter a valid name and age (non-empty value)."
+      showModal(message);
+      setUsername("");
+      setAge("");
+      return
+    }
+    
     let newUser = {
       key: Math.random().toString(),
       username: username,
       age: age,
     }
-    
+
     addUser(newUser);
 
     setUsername("");
