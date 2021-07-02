@@ -1,9 +1,9 @@
 import React from "react";
 
-const User = () => {
+const User = ({ username, age }) => {
   return (
     <div>
-      this is a new user.
+      {`${username} (${age})`}
     </div>
   )
 }

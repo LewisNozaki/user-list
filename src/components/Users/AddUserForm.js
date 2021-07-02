@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const AddUserForm = () => {
+const AddUserForm = ({ addUser }) => {
   const [ username, setUsername ] = useState("");
   const [ age, setAge ] = useState("");
-
+  
   const handleUsernameInputChange = e => setUsername(e.target.value);
   const handleAgeInputChange = e => setAge(e.target.value);
   
@@ -11,11 +11,14 @@ const AddUserForm = () => {
     e.preventDefault();
 
     let newUser = {
+      key: Math.random().toString(),
       username: username,
       age: age,
     }
 
-    console.log(newUser);
+    console.log("AddUserForm: ", newUser);
+
+    addUser(newUser);
 
     setUsername("");
     setAge("");

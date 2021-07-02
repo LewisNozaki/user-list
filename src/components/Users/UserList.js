@@ -1,15 +1,18 @@
 import React from "react";
 import User from "./User"
 
-const UserList = () => {
+const UserList = ({ userList }) => {
   return (
     <div>
-      list of users
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
+      {userList.map(user => {
+        return (
+          <User 
+            key={user.key}
+            username={user.username}
+            age={user.age}
+          />
+        )
+      })}
     </div>
   )
 }
