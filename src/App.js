@@ -21,27 +21,32 @@ const App = () => {
     setModalMessage(message);
   }
 
+  const acknowledgeModal = () => setIsValid(true);
+
   return (
-    <>
-    <div className="main-banner">
-      <h1>User List Application</h1>
-    </div>
-
     <div className="main-container">
-      <AddUserForm 
-        addUser={handleAddUser}
-        showModal={handleValidation}
-      />
-      <UserList 
-        userList={userList}
-      />
-    </div>
+      <div className="main-banner">
+        <h1>User List Application</h1>
+      </div>
 
-    {
-      !isValid && 
-      <Modal />
-    }
-    </>
+      <div className="main-content">
+        <AddUserForm 
+          addUser={handleAddUser}
+          showModal={handleValidation}
+        />
+        <UserList 
+          userList={userList}
+        />
+      </div>
+
+      {
+        !isValid && 
+        <Modal 
+          modalMessage={modalMessage}
+          acknowledgeModal={acknowledgeModal}
+        />
+      }
+    </div>
   );
 }
 

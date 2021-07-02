@@ -9,9 +9,17 @@ const AddUserForm = ({ addUser, showModal }) => {
   
   const handleSubmit = e => {
     e.preventDefault();
-    
+
     if (username === "" || age === "") {
       let message = "Please enter a valid name and age (non-empty value)."
+      showModal(message);
+      setUsername("");
+      setAge("");
+      return
+    }
+
+    if (age < 0) {
+      let message = "Please enter a valid age (> 0)."
       showModal(message);
       setUsername("");
       setAge("");
@@ -23,7 +31,7 @@ const AddUserForm = ({ addUser, showModal }) => {
       username: username,
       age: age,
     }
-
+    
     addUser(newUser);
 
     setUsername("");
