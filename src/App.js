@@ -1,11 +1,12 @@
 import React from "react";
 import AddUserForm from "./components/Users/AddUserForm";
+import UserList from "./components/Users/UserList";
 
 const App = () => {
   return (
-    <div>
-      Hello World! - This is the user list project.
+    <div className="main-container">
       <AddUserForm />
+      <UserList />
     </div>
   );
 }
