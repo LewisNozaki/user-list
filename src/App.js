@@ -7,7 +7,7 @@ const App = () => {
   const [ userList, setUserList ] = useState([]);
   const [ isValid, setIsValid ] = useState(true);
   const [ modalMessage, setModalMessage ] = useState("");
-  
+
   const handleAddUser = newUser => {
     setUserList(prevState => {
       return [...prevState, newUser]
@@ -21,7 +21,7 @@ const App = () => {
     setModalMessage(message);
   }
 
-  const acknowledgeModal = () => setIsValid(true);
+  const closeModal = () => setIsValid(true);
 
   return (
     <div className="main-container">
@@ -43,7 +43,7 @@ const App = () => {
         !isValid && 
         <Modal 
           modalMessage={modalMessage}
-          acknowledgeModal={acknowledgeModal}
+          closeModal={closeModal}
         />
       }
     </div>

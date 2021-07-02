@@ -1,23 +1,24 @@
 import React from "react";
 import styles from "./Modal.module.css";
 
-const Modal = ({ modalMessage, acknowledgeModal}) => {
+const Modal = ({ modalMessage, closeModal}) => {
   return (
     <div className={styles["modal-container"]}
-      onClick={acknowledgeModal}
+      onClick={closeModal}
       >
-      <div className={styles["modal-content"]}>
+      <div className={styles["modal-content"]}
+            onClick={e => e.stopPropagation()}>
         <h3>
           Invalid Input
         </h3>
-
+        
         <p>
           {modalMessage}
         </p>
 
         <button 
           type="button"
-          onClick={acknowledgeModal}
+          onClick={closeModal}
           >
           OK
         </button>
