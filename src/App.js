@@ -16,7 +16,7 @@ const App = () => {
 
     setIsValid(true);
   }
-  
+
   const handleValidation = message => {
     setIsValid(false);
     setModalMessage(message);
@@ -44,7 +44,7 @@ const App = () => {
           userList={userList}
         />
       </div>
-
+      
       {
         !isValid && 
         <Modal 
