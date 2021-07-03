@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Modal.module.css";
 
-const Modal = ({ modalMessage, closeModal}) => {
+const Modal = ({ modalMessage, closeModal }) => {
   return (
     <div className={styles["modal-container"]}
       onClick={closeModal}
@@ -9,11 +9,11 @@ const Modal = ({ modalMessage, closeModal}) => {
       <div className={styles["modal-content"]}
             onClick={e => e.stopPropagation()}>
         <h3>
-          Invalid Input
+          {modalMessage[0]}
         </h3>
         
         <p>
-          {modalMessage}
+          {modalMessage[1]}
         </p>
 
         <button 

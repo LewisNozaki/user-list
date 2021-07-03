@@ -11,15 +11,21 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
     e.preventDefault();
 
     if (username === "" || age === "") {
-      let message = "Please enter a valid name and age (non-empty value)."
+      let message = [
+        "Invalid Input",
+        "Please enter a valid name and age (non-empty value)."
+      ];
       showModal(message);
       setUsername("");
       setAge("");
       return
     }
-    
+
     if (age < 0) {
-      let message = "Please enter a valid age ( > 0 )."
+      let message = [
+        "Invalid Input", 
+        "Please enter a valid age ( > 0 )."
+      ];
       showModal(message);
       setUsername("");
       setAge("");
@@ -48,6 +54,7 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
           type="text"
           value={username}
           onChange={handleUsernameInputChange} 
+          autoComplete="off"
         />
       </div>
       <div>

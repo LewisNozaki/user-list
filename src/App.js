@@ -16,7 +16,7 @@ const App = () => {
 
     setIsValid(true);
   }
-  
+
   const handleValidation = message => {
     setIsValid(false);
     setModalMessage(message);
