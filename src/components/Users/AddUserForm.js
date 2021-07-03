@@ -23,7 +23,7 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
 
     if (age < 0) {
       let message = [
-        "Invalid Input", 
+        "Invalid Age", 
         "Please enter a valid age ( > 0 )."
       ];
       showModal(message);
@@ -39,7 +39,7 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
     }
 
     addUser(newUser);
-
+    
     setUsername("");
     setAge("");
   }
