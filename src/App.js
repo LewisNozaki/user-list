@@ -29,22 +29,24 @@ const App = () => {
   }
 
   return (
-    <div className="main-container">
-      <div className="main-banner">
-        <h1>User List Application</h1>
-      </div>
+    <>
+      <div className="main-container">
+        <div className="main-banner">
+          <h1>User List Application</h1>
+        </div>
 
-      <div className="main-content">
-        <AddUserForm 
-          addUser={handleAddUser}
-          showModal={handleValidation}
-          isDisabled={disableButton}
-        />
-        <UserList 
-          userList={userList}
-        />
-      </div>
-
+        <div className="main-content">
+          <AddUserForm 
+            addUser={handleAddUser}
+            showModal={handleValidation}
+            isDisabled={disableButton}
+          />
+          <UserList 
+            userList={userList}
+          />
+        </div>
+      </div> {/* main-container */}
+      
       {
         !isValid && 
         <Modal 
@@ -52,7 +54,7 @@ const App = () => {
           closeModal={closeModal}
         />
       }
-    </div>
+    </>
   );
 }
 
