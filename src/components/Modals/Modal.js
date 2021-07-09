@@ -3,7 +3,8 @@ import styles from "./Modal.module.css";
 
 const Modal = ({ modalMessage, closeModal }) => {
   return (
-    <div className={styles["modal-container"]}
+    <div 
+      className={styles["modal-container"]}
       onClick={closeModal}
       >
       <div className={styles["modal-content"]}
