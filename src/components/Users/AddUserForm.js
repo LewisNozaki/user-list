@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react";
 
 const AddUserForm = ({ addUser, showModal, isDisabled }) => {
+  // refs
   const nameInputRef = useRef();
   const ageInputRef = useRef();
   
+  // state
   const [ username, setUsername ] = useState("");
   const [ age, setAge ] = useState("");
 
@@ -26,7 +28,7 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
       setAge("");
       return
     }
-    
+
     if (enteredAge < 0) {
       let message = [
         "Invalid Age", 
