@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const AddUserForm = ({ addUser, showModal, isDisabled }) => {
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
+  
   const [ username, setUsername ] = useState("");
   const [ age, setAge ] = useState("");
 
@@ -10,7 +13,10 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (username === "" || age === "") {
+    const enteredName = nameInputRef.current.value;
+    const enteredAge = ageInputRef.current.value;
+
+    if (enteredName === "" || enteredAge === "") {
       let message = [
         "Invalid Input",
         "Please enter a valid name and age (non-empty value)."
@@ -20,8 +26,8 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
       setAge("");
       return
     }
-
-    if (age < 0) {
+    
+    if (enteredAge < 0) {
       let message = [
         "Invalid Age", 
         "Please enter a valid age ( > 0 )."
@@ -34,8 +40,8 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
     
     let newUser = {
       key: Math.random().toString(),
-      username: username,
-      age: age,
+      username: enteredName,
+      age: enteredAge,
     }
 
     addUser(newUser);
@@ -55,6 +61,7 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
           value={username}
           onChange={handleUsernameInputChange} 
           autoComplete="off"
+          ref={nameInputRef}
         />
       </div>
       <div>
@@ -65,6 +72,7 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
           type="number"
           value={age}
           onChange={handleAgeInputChange}
+          ref={ageInputRef}
         />
       </div>
 
