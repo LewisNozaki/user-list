@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Modal.module.css";
+import ReactDOM from "react-dom";
 
-const Modal = ({ modalMessage, closeModal }) => {
+const Content = ({ modalMessage, closeModal }) => {
   return (
     <div 
       className={styles["modal-container"]}
@@ -25,6 +26,20 @@ const Modal = ({ modalMessage, closeModal }) => {
         </button>
       </div>
     </div>
+  )
+};
+
+const Modal = ({ modalMessage, closeModal }) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <Content 
+          modalMessage={modalMessage}
+          closeModal={closeModal}
+        />,
+        document.getElementById("modal-root")
+        )}
+    </>
   )
 }
 
