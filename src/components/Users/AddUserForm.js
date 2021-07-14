@@ -15,6 +15,8 @@ const AddUserForm = ({ addUser, showModal, isDisabled }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    // This is using the useRef() declared above. We set the value of the "current" object to a variable. 
+    // We could use state for this but, this is an example of how to save the stored input data using useRef() instead. 
     const enteredName = nameInputRef.current.value;
     const enteredAge = ageInputRef.current.value;
 
